@@ -1,5 +1,5 @@
 (function () {
-   // 'use strict';
+    'use strict';
 
     angular.module('NarrowItDownApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
@@ -55,11 +55,11 @@
 
     function FoundItemsDirective() {
         var ddo = {
-            //restrict: 'AE',
+            restrict: 'AE',
             templateUrl: 'foundItems.html',
             scope: {
-              //  foundItems: '<',
-              foundItems: '=',
+                foundItems: '<',
+              //foundItems: '=',
                 onRemove: '&'
             }
         };
