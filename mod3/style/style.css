@@ -1,5 +1,6 @@
 h1 {
     margin-bottom: 30px;
+    background-color: aqua;
   }
   input[type="text"] {
     width: 200px;
@@ -10,7 +11,7 @@ h1 {
     margin-left: 10px;
   }
   .loader {
-    display: none;
+    display:block;
     margin-left: 5px;
     font-size: 10px;
     float: left;
