@@ -1,5 +1,5 @@
 (function () {
-    'use strict';
+   // 'use strict';
 
     angular.module('NarrowItDownApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
@@ -13,15 +13,16 @@
         menu.found = [];
 
         menu.narrowItDown = function () {
-            if (menu.searchTerm.trim() === '') {
+            /*if (menu.searchTerm.trim() === '') {
 
                 menu.found = [];
             } else {
+                */
                 MenuSearchService.getMatchedMenuItems(menu.searchTerm)
                     .then(function (foundItems) {
                         menu.found = foundItems;
                     });
-            }
+          //  }
         };
 
         menu.removeItem = function (index) {
@@ -54,10 +55,11 @@
 
     function FoundItemsDirective() {
         var ddo = {
-            restrict: 'E',
+            //restrict: 'AE',
             templateUrl: 'foundItems.html',
             scope: {
-                foundItems: '<',
+              //  foundItems: '<',
+              foundItems: '=',
                 onRemove: '&'
             }
         };
