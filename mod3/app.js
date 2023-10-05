@@ -32,7 +32,8 @@
 
     MenuSearchService.$inject = ['$http'];
     function MenuSearchService($http) {
-        var service = this;
+        var service = this;            
+        console.log("wait");
 
         service.getMatchedMenuItems = function (searchTerm) {
             console.log("wait");
