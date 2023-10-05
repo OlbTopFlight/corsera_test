@@ -13,17 +13,18 @@
         menu.found = [];
 
         menu.narrowItDown = function () {
-            if (menu.searchTerm.trim() === '') {
+           /* if (menu.searchTerm.trim() === '') {
                 console.log("ok");
                 menu.found = [];
             } else {
+                */
                 console.log("doing something");
                 MenuSearchService.getMatchedMenuItems(menu.searchTerm)
                     .then(function (foundItems) {
                         menu.found = foundItems;
                     });
         };
-    }
+   // }
         menu.removeItem = function (index) {
             menu.found.splice(index, 1);
         };
@@ -34,6 +35,7 @@
         var service = this;
 
         service.getMatchedMenuItems = function (searchTerm) {
+            console.log("wait");
             return $http({
                 method: 'GET',
                 url: 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json'
@@ -42,6 +44,7 @@
                 var menuItems = response.data;
 
                 for (var i = 0; i < menuItems.length; i++) {
+                    console.log("for");
                     var menuItem = menuItems[i];
                     if (menuItem.description.toLowerCase().includes(searchTerm.toLowerCase())) {
                         foundItems.push(menuItem);
