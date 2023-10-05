@@ -13,17 +13,17 @@
         menu.found = [];
 
         menu.narrowItDown = function () {
-            /*if (menu.searchTerm.trim() === '') {
-
+            if (menu.searchTerm.trim() === '') {
+                console.log("ok");
                 menu.found = [];
             } else {
-              */  
+                console.log("doing something");
                 MenuSearchService.getMatchedMenuItems(menu.searchTerm)
                     .then(function (foundItems) {
                         menu.found = foundItems;
                     });
         };
-    //}
+    }
         menu.removeItem = function (index) {
             menu.found.splice(index, 1);
         };
@@ -54,7 +54,7 @@
 
     function FoundItemsDirective() {
         var ddo = {
-            //restrict: 'AE',
+            restrict: 'AE',
             templateUrl: 'foundItems.html',
             scope: {
                 foundItems: '<',
