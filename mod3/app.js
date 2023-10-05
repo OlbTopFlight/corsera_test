@@ -13,17 +13,17 @@
         menu.found = [];
 
         menu.narrowItDown = function () {
-            if (menu.searchTerm.trim() === '') {
+            /*if (menu.searchTerm.trim() === '') {
 
                 menu.found = [];
             } else {
-                
+              */  
                 MenuSearchService.getMatchedMenuItems(menu.searchTerm)
                     .then(function (foundItems) {
                         menu.found = foundItems;
                     });
         };
-    }
+    //}
         menu.removeItem = function (index) {
             menu.found.splice(index, 1);
         };
