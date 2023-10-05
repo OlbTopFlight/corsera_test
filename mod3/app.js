@@ -13,18 +13,20 @@
         menu.found = [];
 
         menu.narrowItDown = function () {
-           /* if (menu.searchTerm.trim() === '') {
-                console.log("ok");
+            console.log(menu.searchTerm);
+           if (menu.searchTerm.trim() === '') {
+                //console.log("menu.searchTerm");
                 menu.found = [];
             } else {
-                */
-                console.log("doing something");
+                
+                console.log(menu.searchTerm);
                 MenuSearchService.getMatchedMenuItems(menu.searchTerm)
                     .then(function (foundItems) {
                         menu.found = foundItems;
+                        //console.log(menu.serchTerm);
                     });
         };
-   // }
+    }
         menu.removeItem = function (index) {
             menu.found.splice(index, 1);
         };
@@ -33,24 +35,28 @@
     MenuSearchService.$inject = ['$http'];
     function MenuSearchService($http) {
         var service = this;            
-        console.log("wait");
 
         service.getMatchedMenuItems = function (searchTerm) {
-            console.log("wait");
             return $http({
                 method: 'GET',
-                url: 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json'
+                url: 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json'    
             }).then(function (response) {
                 var foundItems = [];
                 var menuItems = response.data;
+                console.log(menuItems);
 
                 for (var i = 0; i < menuItems.length; i++) {
-                    console.log("for");
-                    var menuItem = menuItems[i];
-                    if (menuItem.description.toLowerCase().includes(searchTerm.toLowerCase())) {
-                        foundItems.push(menuItem);
+
+                    for(var j = 0; j <menuItems.length; j++){
+                        var menuItem = menuItems[i];
+                        //console.log(menuItems[i]);
+                        //if (menuItem.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+                          //  foundItems.push(menuItem);
+                            //console.log(foundItems);
+                        //}
                     }
                 }
+                
                 return foundItems;
             });
         };
@@ -58,16 +64,16 @@
 
     function FoundItemsDirective() {
         var ddo = {
-            restrict: 'E',
+            restrict: 'A',
             templateUrl: 'foundItems.html',
             scope: {
                 foundItems: '<',
-              //foundItems: '=',
+                myTitle: '@title',
                 onRemove: '&'
             }
         };
 
         return ddo;
     }
-
+    
 })();
