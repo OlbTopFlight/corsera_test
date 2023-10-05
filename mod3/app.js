@@ -54,7 +54,7 @@
 
     function FoundItemsDirective() {
         var ddo = {
-            restrict: 'AE',
+            restrict: 'E',
             templateUrl: 'foundItems.html',
             scope: {
                 foundItems: '<',
